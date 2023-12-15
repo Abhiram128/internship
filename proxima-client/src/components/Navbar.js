@@ -31,6 +31,9 @@ const Navbar = () => {
         )}
         {user && (
           <div className='flex gap-5 lg:w-auto justify-around items-center relative w-screen'>
+              <Link to='/projectform' className='hover:text-sky-400 duration-300'>
+              Create Project
+            </Link>
             <h3>
               {user?.fullName && "Welcome,"}{" "}
               <span
