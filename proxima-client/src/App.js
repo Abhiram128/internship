@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ProjectForm from './components/ProjectForm';
 import { useAuthContext } from "./hooks/useAuthContext";
 
 function App() {
@@ -14,14 +15,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={user ? <Home /> : <Navigate to='login' />} />
-        <Route
-          path='/login'
-          element={!user ? <Login /> : <Navigate to='/' />}
-        />
-        <Route
-          path='/signup'
-          element={!user ? <Signup /> : <Navigate to='/' />}
-        />
+        <Route path='/login' element={!user ? <Login /> : <Navigate to='/' />} />
+        <Route path='/signup' element={!user ? <Signup /> : <Navigate to='/' />} />
+        {/* Add the new Route for ProjectForm */}
+        <Route path='/projectform' element={user ? <ProjectForm /> : <Navigate to='login' />} />
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>
       <Footer />
